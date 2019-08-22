@@ -1,9 +1,8 @@
 package co.edu.udem.dp;
 
-
-import co.edu.udem.dp.Interfaces.ICliente;
+import co.edu.udem.dp.Interfaces.Cliente;
 
 public class Reserva {
-    private ICliente cliente;
-    private Mesa mesa ;
+    public Cliente cliente;
+    public Mesa mesa;
 }

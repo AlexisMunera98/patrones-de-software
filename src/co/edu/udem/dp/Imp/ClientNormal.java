@@ -1,16 +1,11 @@
 package co.edu.udem.dp.Imp;
 
 
-import co.edu.udem.dp.Interfaces.ICliente;
+import co.edu.udem.dp.Interfaces.Cliente;
 
-public class ClientNormal implements ICliente {
+public class ClientNormal extends Cliente {
     @Override
-    public boolean isVIP() {
-        return false;
-    }
-
-    @Override
-    public boolean register() {
-        return false;
+    public double calcularDescuento() {
+        return 0.8;
     }
 }

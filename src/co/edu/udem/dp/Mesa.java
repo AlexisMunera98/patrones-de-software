@@ -1,11 +1,18 @@
 package co.edu.udem.dp;
 
-public class Mesa {
+import co.edu.udem.dp.Interfaces.Reservable;
+
+public class Mesa implements Reservable {
     public int cantidadComensales;
     public Motivo motivo;
     public Cocina cocina;
 
     public Mesa(Motivo motivo) {
         this.motivo = motivo;
+    }
+
+    @Override
+    public double calcularPrecio() {
+        return 0;
     }
 }

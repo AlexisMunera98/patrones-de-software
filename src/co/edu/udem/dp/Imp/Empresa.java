@@ -2,10 +2,9 @@ package co.edu.udem.dp.Imp;
 
 import co.edu.udem.dp.Interfaces.Cliente;
 
-public class ClienteVip extends ClienteNatural{
-
+public class Empresa extends Cliente {
     @Override
     public double calcularDescuento() {
-        return 0.5;
+        return 0;
     }
 }

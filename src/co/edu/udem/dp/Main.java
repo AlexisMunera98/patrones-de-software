@@ -2,6 +2,7 @@ package co.edu.udem.dp;
 
 import co.edu.udem.dp.Imp.ClienteVip;
 import co.edu.udem.dp.Interfaces.Cliente;
+import co.edu.udem.dp.Interfaces.Reservable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +13,7 @@ public class Main {
         // write your code here
         Cocina cocina = new Cocina();
         Jefe jefe = new Jefe("Jefe", "1234", cocina);
-        List<Mesa> mesas = new ArrayList<Mesa>();
+        List<Reservable> mesas = new ArrayList<Reservable>();
 
         Motivo motivo1 = new Motivo();
         Mesa mesa1 = new Mesa(motivo1);

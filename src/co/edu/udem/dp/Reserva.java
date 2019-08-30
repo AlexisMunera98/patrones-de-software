@@ -5,15 +5,36 @@ import co.edu.udem.dp.Interfaces.Reservable;
 
 public class Reserva {
     public Cliente cliente;
-    public Mesa mesa;
-    private Reservable reservable;
+    public Mesa reservable;
 
-    public void setMesa(Mesa mesa) {
-        this.mesa = mesa;
+    public Reservable getReservable() {
+        return reservable;
+    }
+
+    private boolean active;
+
+    public Reserva(Cliente cliente, Mesa reservable) {
+        this.cliente = cliente;
+        this.reservable = reservable;
+    }
+
+    public void setReservable(Mesa reservable) {
+        this.reservable = reservable;
     }
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
+    }
 
+    public void finishReserva(){
+        this.active = false;
+    }
+
+    public void activate(){
+        this.active = true;
+    }
+
+    public boolean isActive() {
+        return this.active;
     }
 }

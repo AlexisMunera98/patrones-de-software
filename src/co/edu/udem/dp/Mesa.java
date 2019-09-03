@@ -1,6 +1,6 @@
 package co.edu.udem.dp;
 
-import co.edu.udem.dp.Interfaces.Reservable;
+import co.edu.udem.dp.interfaces.Reservable;
 
 public class Mesa extends Reservable {
     public int cantidadComensales;

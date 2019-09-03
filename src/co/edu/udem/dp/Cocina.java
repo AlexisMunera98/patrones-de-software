@@ -1,14 +1,22 @@
 package co.edu.udem.dp;
 
-import co.edu.udem.dp.Interfaces.Cliente;
-import co.edu.udem.dp.Interfaces.Reservable;
+import co.edu.udem.dp.factories.ClientFactory;
+import co.edu.udem.dp.interfaces.Cliente;
+import co.edu.udem.dp.interfaces.Reservable;
+import co.edu.udem.dp.visitors.RecorrerReservasHechasVisitor;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Cocina {
     public List<Reserva> reservas;
+    public List<Reservable> mesas;
+    public List<Cliente> clientes;
     public Jefe jefe;
+
+    public Cocina(Jefe jefe) {
+        this.jefe = jefe;
+    }
 
     public void setReservas(List<Reserva> reservas) {
         this.reservas = reservas;
@@ -37,4 +45,17 @@ public class Cocina {
         }
         return false;
     }
+
+    public void accept(RecorrerReservasHechasVisitor recorrerReservasHechasVisitor) {
+        recorrerReservasHechasVisitor.run(this);
+    }
+
+    public void newNaturalClient(String nombre, String id) {
+        this.clientes.add(ClientFactory.getclientFactory().createClienteNatural(nombre, id));
+    }
+
+    public void newVipClient(String nombre, String id) {
+        this.clientes.add(ClientFactory.getclientFactory().createClienteVip(nombre, id));
+    }
+
 }

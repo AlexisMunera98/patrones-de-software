@@ -1,4 +1,4 @@
-package co.edu.udem.dp.Interfaces;
+package co.edu.udem.dp.interfaces;
 
 import co.edu.udem.dp.Motivo;
 
@@ -9,5 +9,8 @@ public abstract class Reservable {
     public Motivo motivo;
     public boolean isAvailable;
 
+
     public abstract double calcularPrecio();
+
+    public abstract void disable();
 }

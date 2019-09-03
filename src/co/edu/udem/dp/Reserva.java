@@ -1,24 +1,26 @@
 package co.edu.udem.dp;
 
-import co.edu.udem.dp.Interfaces.Cliente;
-import co.edu.udem.dp.Interfaces.Reservable;
+import co.edu.udem.dp.interfaces.Cliente;
+import co.edu.udem.dp.interfaces.Reservable;
+
+import java.util.Date;
 
 public class Reserva {
     public Cliente cliente;
-    public Mesa reservable;
-
+    public Reservable reservable;
+    public Date fechaReserva;
     public Reservable getReservable() {
         return reservable;
     }
 
     private boolean active;
 
-    public Reserva(Cliente cliente, Mesa reservable) {
+    public Reserva(Cliente cliente, Reservable reservable) {
         this.cliente = cliente;
         this.reservable = reservable;
     }
 
-    public void setReservable(Mesa reservable) {
+    public void setReservable(Reservable reservable) {
         this.reservable = reservable;
     }
 
@@ -26,11 +28,11 @@ public class Reserva {
         this.cliente = cliente;
     }
 
-    public void finishReserva(){
+    public void finishReserva() {
         this.active = false;
     }
 
-    public void activate(){
+    public void activate() {
         this.active = true;
     }
 

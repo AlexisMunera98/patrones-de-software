@@ -1,8 +1,11 @@
 package co.edu.udem.dp;
 
-import co.edu.udem.dp.Imp.ClienteVip;
-import co.edu.udem.dp.Interfaces.Cliente;
-import co.edu.udem.dp.Interfaces.Reservable;
+import co.edu.udem.dp.factories.CocinaFactory;
+import co.edu.udem.dp.imp.ClienteVip;
+import co.edu.udem.dp.interfaces.Cliente;
+import co.edu.udem.dp.interfaces.Reservable;
+import co.edu.udem.dp.factories.JefeFactory;
+import co.edu.udem.dp.visitors.RecorrerReservasHechasVisitor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,9 +13,15 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
+//        Cocina cocina = new Cocina();
+//        Jefe jefe = new Jefe("Jefe", "1234", cocina);
+        
+        Cocina cocina = CocinaFactory.getCocinaFactory().createCocina("Jefe", "1234");
+        cocina.newNaturalClient("Cliente1", "1");
+        cocina.newNaturalClient("Cliente2", "2");
+        cocina.newVipClient("Cliente3", "3");
 
-        Cocina cocina = new Cocina();
-        Jefe jefe = new Jefe("Jefe", "1234", cocina);
+
         List<Reservable> mesas = new ArrayList<Reservable>();
 
         Mesa mesa1 = new Mesa();
@@ -21,11 +30,8 @@ public class Main {
         mesas.add(mesa1);
         mesas.add(mesa2);
 
-        cocina.setMesas(mesas);
-
-        Cliente cliente = new ClienteVip();
-        Cliente cliente2 = new ClienteVip();
-
+//        Cliente cliente = new ClienteVip();
+//        Cliente cliente2 = new ClienteVip();
 
         List<Servicio> servicios = new ArrayList<Servicio>();
 
@@ -37,5 +43,9 @@ public class Main {
         Motivo motivo1 = new Motivo();
         motivo1.setServicios(servicios);
 
+        RecorrerReservasHechasVisitor recorrerReservasHechasVisitor = new RecorrerReservasHechasVisitor();
+        cocina.accept(recorrerReservasHechasVisitor);
+
+        JefeFactory jefeFactory = JefeFactory.getInstance();
     }
 }

@@ -5,9 +5,9 @@ public class Jefe {
     public String id;
     public Cocina cocina;
 
-    public Jefe(String nombre, String id, Cocina cocina) {
+    public Jefe(String nombre, String id) {
         this.nombre = nombre;
         this.id = id;
-        this.cocina = cocina;
+//        this.cocina = cocina;
     }
 }

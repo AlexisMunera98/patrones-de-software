@@ -9,7 +9,7 @@ public abstract class Reservable {
     public Motivo motivo;
     public boolean isAvailable;
 
-
+    public abstract void setMotivo(Motivo motivo);
     public abstract double calcularPrecio();
 
     public abstract void disable();

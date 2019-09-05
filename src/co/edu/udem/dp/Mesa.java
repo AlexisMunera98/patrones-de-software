@@ -1,11 +1,12 @@
 package co.edu.udem.dp;
 
+import co.edu.udem.dp.interfaces.Confort;
 import co.edu.udem.dp.interfaces.Reservable;
+
+import java.util.List;
 
 public class Mesa extends Reservable {
     public int cantidadComensales;
-    public Motivo motivo;
-    public boolean isAvailable;
 
     public boolean isAvailable() {
         return isAvailable;
@@ -15,8 +16,9 @@ public class Mesa extends Reservable {
         this.motivo = motivo;
     }
 
-    public Mesa() {
-        this.motivo = motivo;
+    public Mesa(List<Confort> conforts, int cantidadComensales) {
+        this.cantidadComensales = cantidadComensales;
+        this.confortList = conforts;
     }
 
     @Override

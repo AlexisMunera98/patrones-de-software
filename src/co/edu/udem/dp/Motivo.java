@@ -6,12 +6,16 @@ public class Motivo {
     public String nombre;
     public List<Servicio> servicios;
 
-    public void setServicios(List<Servicio> servicios) {
+    public Motivo(String nombre, List<Servicio> servicios) {
+        this.nombre = nombre;
         this.servicios = servicios;
     }
 
     public double calcularPrecio() {
-
-        return 3000;
+        double total = 0;
+        for (Servicio servicio : servicios) {
+            total += (servicio.precio * servicio.horas);
+        }
+        return total;
     }
 }

@@ -8,7 +8,7 @@ import java.time.Instant;
 import java.util.Date;
 import java.util.List;
 
-public class RecorrerReservasHechasVisitor implements Visitor {
+public class ReservasProximasVisitor implements Visitor {
 
 
     public void run(Cocina cocina) {
@@ -17,7 +17,7 @@ public class RecorrerReservasHechasVisitor implements Visitor {
                 reservas) {
             Date fechaIngreso = reserva.fechaReserva;
             Date now = Date.from(Instant.now());
-            if (fechaIngreso.before(now)) {
+            if (fechaIngreso.after(now)) {
                 System.out.println(reserva.cliente.nombre);
             }
         }

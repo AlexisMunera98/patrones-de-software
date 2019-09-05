@@ -1,14 +1,16 @@
 package co.edu.udem.dp.visitors;
 
 import co.edu.udem.dp.Cocina;
+import co.edu.udem.dp.interfaces.Reservable;
 import co.edu.udem.dp.interfaces.Visitor;
 import co.edu.udem.dp.Reserva;
 
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class RecorrerReservasProximasVisitor implements Visitor {
+public class ReservasHechasVisitor implements Visitor {
 
 
     public void run(Cocina cocina) {
@@ -17,7 +19,7 @@ public class RecorrerReservasProximasVisitor implements Visitor {
                 reservas) {
             Date fechaIngreso = reserva.fechaReserva;
             Date now = Date.from(Instant.now());
-            if (fechaIngreso.after(now)) {
+            if (fechaIngreso.before(now)) {
                 System.out.println(reserva.cliente.nombre);
             }
         }

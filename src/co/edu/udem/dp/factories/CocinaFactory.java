@@ -23,5 +23,4 @@ public class CocinaFactory {
     public Cocina createCocina(String nombreJefe, String idJefe) {
         return new Cocina(JefeFactory.getInstance().createJefe(nombreJefe, idJefe));
     }
-
 }

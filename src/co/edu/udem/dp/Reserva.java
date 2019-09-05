@@ -1,11 +1,17 @@
 package co.edu.udem.dp;
 
+import co.edu.udem.dp.imp.ClienteNatural;
+import co.edu.udem.dp.imp.ClienteVip;
+import co.edu.udem.dp.imp.Empresa;
 import co.edu.udem.dp.interfaces.Cliente;
+import co.edu.udem.dp.interfaces.Confort;
 import co.edu.udem.dp.interfaces.Reservable;
+
+import java.util.List;
 
 public class Reserva {
     public Cliente cliente;
-    public Mesa reservable;
+    public Reservable reservable;
 
     public Reservable getReservable() {
         return reservable;
@@ -13,9 +19,10 @@ public class Reserva {
 
     private boolean active;
 
-    public Reserva(Cliente cliente, Mesa reservable) {
+    public Reserva(Cliente cliente, Reservable reservable) {
         this.cliente = cliente;
         this.reservable = reservable;
+        active = true;
     }
 
     public void setReservable(Mesa reservable) {
@@ -26,11 +33,34 @@ public class Reserva {
         this.cliente = cliente;
     }
 
-    public void finishReserva(){
+    public boolean finishReserva() {
         this.active = false;
+        return true;
     }
 
-    public void activate(){
+    public boolean addReservable(Reservable reservable) {
+        this.reservable = reservable;
+
+        return true;
+    }
+
+    public Reservable createReservable(int cantidadComensales) {
+        return new Mesa(cantidadComensales);
+    }
+
+    public Cliente createClient(String tipoCliente, String nombre, String id) {
+        switch (tipoCliente) {
+            case "Empresa":
+                return new Empresa();
+            case "ClienteNatural":
+                return new ClienteNatural(nombre, id);
+            case "ClienteVIP":
+                return new ClienteVip(nombre, id);
+        }
+        return new ClienteNatural(nombre, id);
+    }
+
+    public void activate() {
         this.active = true;
     }
 

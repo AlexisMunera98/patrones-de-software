@@ -1,12 +1,16 @@
 package co.edu.udem.dp;
 
+import co.edu.udem.dp.interfaces.Confort;
 import co.edu.udem.dp.interfaces.Reservable;
+
+import java.util.List;
 
 public class Mesa extends Reservable {
     public int cantidadComensales;
 
 
-    public Mesa() {
+    public Mesa(int cantidadComensales) {
+        this.cantidadComensales = cantidadComensales;
     }
 
     @Override

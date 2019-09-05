@@ -8,7 +8,6 @@ import java.util.List;
 
 public class Cocina {
     public List<Reserva> reservas;
-    public List<Reservable> reservables;
     public List<Cliente> clientes;
     public Jefe jefe;
 
@@ -22,16 +21,21 @@ public class Cocina {
         return availables;
     }
 
+    public Cocina(Jefe jefe) {
+        this.jefe = jefe;
+        reservas = new ArrayList<>();
+        clientes = new ArrayList<>();
+    }
+
     public void hacerReserva(Mesa mesa, Motivo motivo, Cliente cliente) {
         mesa.setMotivo(motivo);
         reservas.add(new Reserva(cliente, mesa));
     }
 
-    public boolean terminarReserva(Reserva reserva) {
+
+    public boolean finishReserva(Reserva reserva) {
         if (reservas.contains(reserva)) {
-            reservas.get(reservas.indexOf(reserva)).reservable.disable();
-            reservas.get(reservas.indexOf(reserva)).finishReserva();
-            return true;
+            return reserva.finishReserva();
         }
         return false;
     }
@@ -40,17 +44,11 @@ public class Cocina {
         this.jefe = jefe;
     }
 
-    public void setReservables(List<Reservable> reservables) {
-        this.reservables = reservables;
-    }
 
     public void addCliente(Cliente cliente) {
         clientes.add(cliente);
     }
 
-    public void addReservable(Reservable reservable) {
-        reservables.add(reservable);
-    }
 
     public void setReservas(List<Reserva> reservas) {
         this.reservas = reservas;

@@ -1,4 +1,4 @@
-package co.edu.udem.dp.Interfaces;
+package co.edu.udem.dp.interfaces;
 
 import co.edu.udem.dp.Cocina;
 import co.edu.udem.dp.Reserva;

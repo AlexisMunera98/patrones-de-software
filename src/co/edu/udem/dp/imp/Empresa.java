@@ -1,6 +1,6 @@
-package co.edu.udem.dp.Imp;
+package co.edu.udem.dp.imp;
 
-import co.edu.udem.dp.Interfaces.Cliente;
+import co.edu.udem.dp.interfaces.Cliente;
 
 public class Empresa extends Cliente {
     @Override

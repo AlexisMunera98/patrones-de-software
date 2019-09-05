@@ -1,8 +1,8 @@
 package co.edu.udem.dp;
 
-import co.edu.udem.dp.Imp.ClienteVip;
-import co.edu.udem.dp.Interfaces.Cliente;
-import co.edu.udem.dp.Interfaces.Reservable;
+import co.edu.udem.dp.imp.ClienteVip;
+import co.edu.udem.dp.interfaces.Cliente;
+import co.edu.udem.dp.interfaces.Reservable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,29 +13,31 @@ public class Main {
 
         Cocina cocina = new Cocina();
         Jefe jefe = new Jefe("Jefe", "1234", cocina);
-        List<Reservable> mesas = new ArrayList<Reservable>();
+        cocina.setJefe(jefe);
 
         Mesa mesa1 = new Mesa();
         Mesa mesa2 = new Mesa();
 
-        mesas.add(mesa1);
-        mesas.add(mesa2);
-
-        cocina.setMesas(mesas);
+        cocina.addReservable(mesa1);
+        cocina.addReservable(mesa2);
 
         Cliente cliente = new ClienteVip();
         Cliente cliente2 = new ClienteVip();
 
+        cocina.addCliente(cliente);
+        cocina.addCliente(cliente2);
 
-        List<Servicio> servicios = new ArrayList<Servicio>();
 
         Servicio servicio1 = new Servicio();
         Servicio servicio2 = new Servicio();
 
-        servicios.add(servicio2);
 
         Motivo motivo1 = new Motivo();
-        motivo1.setServicios(servicios);
+        motivo1.addServicio(servicio1);
+        motivo1.addServicio(servicio2);
 
+        mesa1.setMotivo(motivo1);
+
+        cocina.hacerReserva(mesa1, motivo1, cliente);
     }
 }

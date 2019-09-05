@@ -1,6 +1,4 @@
-package co.edu.udem.dp.Imp;
-
-import co.edu.udem.dp.Interfaces.Cliente;
+package co.edu.udem.dp.imp;
 
 public class ClienteVip extends ClienteNatural{
 

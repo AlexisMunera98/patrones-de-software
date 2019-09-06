@@ -38,12 +38,6 @@ public class Reserva {
         return true;
     }
 
-    public boolean addReservable(Reservable reservable) {
-        this.reservable = reservable;
-
-        return true;
-    }
-
     public Reservable createReservable(int cantidadComensales) {
         return new Mesa(cantidadComensales);
     }

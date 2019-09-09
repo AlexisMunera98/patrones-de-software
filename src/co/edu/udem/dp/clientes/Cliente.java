@@ -3,6 +3,7 @@ package co.edu.udem.dp.clientes;
 import co.edu.udem.dp.Cocina;
 import co.edu.udem.dp.Reserva;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -12,6 +13,7 @@ public abstract class Cliente {
         this.nombre = nombre;
         this.id = id;
         this.fechaIngreso = fechaIngreso;
+        this.reservas = new ArrayList<Reserva>();
     }
 
     public List<Reserva> reservas;
@@ -21,10 +23,14 @@ public abstract class Cliente {
 
     public int calcularNumeroDeReservas(Cocina cocina) {
         int count = 0;
-        for (Reserva reserva :cocina.reservas) {
-            if(reserva.cliente.equals(this)) count ++;
+        for (Reserva reserva : cocina.reservas) {
+            if (reserva.cliente.equals(this)) count++;
         }
         return count;
+    }
+
+    public void addReserva(Reserva reserva) {
+        this.reservas.add(reserva);
     }
 
 

@@ -1,5 +1,6 @@
 package co.edu.udem.dp;
 
+import co.edu.udem.dp.clientes.ClienteNatural;
 import co.edu.udem.dp.factories.*;
 import co.edu.udem.dp.motivos.Motivo;
 import co.edu.udem.dp.servicios.Servicio;
@@ -17,7 +18,7 @@ public class Main {
         cocina.nuevoClienteVip("Cliente3", "3");
 
         Servicio torta = ServicioFactory.getInstance().createServicio("Torta", 25000);
-        Servicio serenata = ServicioFactory.getInstance().createServicio("Gorros", 20000, 2);
+        Servicio serenata = ServicioFactory.getInstance().createServicio("Serenata", 20000, 2);
         Motivo cumpleanos = MotivoFactory.getInstance().createMotivo("Cumpleaños", Arrays.asList(torta, serenata));
 
         cocina.añadirReservable(ReservableFactory.getInstance().createMesa(cumpleanos, 4));

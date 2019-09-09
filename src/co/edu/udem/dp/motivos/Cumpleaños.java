@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Cumpleaños extends Motivo {
     public Cumpleaños(List<Servicio> servicios) {
-        super(servicios);
+        super("Cumpleanos", servicios);
     }
 
     @Override

@@ -6,6 +6,7 @@ import co.edu.udem.dp.reservables.Reservable;
 import co.edu.udem.dp.visitors.Visitor;
 import co.edu.udem.dp.motivos.Motivo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Cocina {
@@ -15,6 +16,9 @@ public class Cocina {
     public Jefe jefe;
 
     public Cocina(Jefe jefe) {
+        reservables = new ArrayList<Reservable>();
+        clientes = new ArrayList<Cliente>();
+        reservas = new ArrayList<Reserva>();
         this.jefe = jefe;
     }
 
@@ -33,7 +37,9 @@ public class Cocina {
             if (motivo != null) reservable.setMotivo(motivo);
             reservable.disable();
         }
-        reservas.add(new Reserva(cliente, reservables));
+        Reserva reserva = new Reserva(cliente, reservables);
+        reservas.add(reserva);
+        cliente.addReserva(reserva);
         return true;
     }
 

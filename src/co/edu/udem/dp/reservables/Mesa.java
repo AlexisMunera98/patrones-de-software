@@ -19,6 +19,7 @@ public class Mesa extends Reservable {
     public Mesa(List<Confort> conforts, int cantidadComensales) {
         this.cantidadComensales = cantidadComensales;
         this.confortList = conforts;
+        isAvailable = true;
     }
 
     @Override

@@ -20,6 +20,8 @@ public class Reserva {
     public Reserva(Cliente cliente, List<Reservable> reservables) {
         this.cliente = cliente;
         this.reservables = reservables;
+        this.fechaReserva = new Date();
+        this.active = true;
     }
 
     public void setReservables(List<Reservable> reservables) {

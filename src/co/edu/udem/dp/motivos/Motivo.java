@@ -9,7 +9,8 @@ public abstract class Motivo {
     public String nombre;
     public List<Servicio> servicios;
 
-    public Motivo( List<Servicio> servicios) {
+    public Motivo( String nombre,  List<Servicio> servicios) {
+        this.nombre =nombre;
         this.servicios = servicios;
     }
 

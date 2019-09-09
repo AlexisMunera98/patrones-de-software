@@ -9,14 +9,14 @@ public class JefeFactory {
     private JefeFactory() {
     }
 
-    public static JefeFactory getInstance(){
-        if (jefeFactory == null){
+    public static JefeFactory getInstance() {
+        if (jefeFactory == null) {
             jefeFactory = new JefeFactory();
         }
         return jefeFactory;
     }
 
-    public Jefe createJefe(String nombre, String id){
+    public Jefe createJefe(String nombre, String id) {
         return new Jefe(nombre, id);
     }
 

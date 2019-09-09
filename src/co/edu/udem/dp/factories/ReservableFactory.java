@@ -1,9 +1,9 @@
 package co.edu.udem.dp.factories;
 
-import co.edu.udem.dp.Mesa;
-import co.edu.udem.dp.Motivo;
-import co.edu.udem.dp.interfaces.Confort;
-import co.edu.udem.dp.interfaces.Reservable;
+import co.edu.udem.dp.reservables.Mesa;
+import co.edu.udem.dp.conforts.Confort;
+import co.edu.udem.dp.reservables.Reservable;
+import co.edu.udem.dp.motivos.Motivo;
 
 import java.util.List;
 

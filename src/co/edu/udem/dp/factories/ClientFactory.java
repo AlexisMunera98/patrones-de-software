@@ -1,7 +1,7 @@
 package co.edu.udem.dp.factories;
 
-import co.edu.udem.dp.imp.ClienteNatural;
-import co.edu.udem.dp.imp.ClienteVip;
+import co.edu.udem.dp.clientes.ClienteNatural;
+import co.edu.udem.dp.clientes.ClienteVip;
 
 import java.time.Instant;
 import java.util.Date;

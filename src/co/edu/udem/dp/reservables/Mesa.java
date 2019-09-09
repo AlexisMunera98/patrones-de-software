@@ -1,7 +1,7 @@
-package co.edu.udem.dp;
+package co.edu.udem.dp.reservables;
 
-import co.edu.udem.dp.interfaces.Confort;
-import co.edu.udem.dp.interfaces.Reservable;
+import co.edu.udem.dp.conforts.Confort;
+import co.edu.udem.dp.motivos.Motivo;
 
 import java.util.List;
 
@@ -26,11 +26,4 @@ public class Mesa extends Reservable {
         return 0;
     }
 
-    public void enable() {
-        this.isAvailable = true;
-    }
-
-    public void disable() {
-        this.isAvailable = false;
-    }
 }

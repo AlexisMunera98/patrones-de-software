@@ -1,7 +1,9 @@
 package co.edu.udem.dp.factories;
 
-import co.edu.udem.dp.Motivo;
-import co.edu.udem.dp.Servicio;
+import co.edu.udem.dp.motivos.Aniversario;
+import co.edu.udem.dp.motivos.Cumpleaños;
+import co.edu.udem.dp.motivos.Motivo;
+import co.edu.udem.dp.servicios.Servicio;
 
 import java.util.List;
 
@@ -19,6 +21,12 @@ public class MotivoFactory {
     }
 
     public Motivo createMotivo(String nombre, List<Servicio> servicios){
-        return new Motivo(nombre, servicios);
+        if (nombre.equals("Cumpleaños")) {
+            return new Cumpleaños(servicios);
+        }
+        if(nombre.equals("Aniversario")){
+            return new Aniversario(servicios);
+        }
+        return null;
     }
 }

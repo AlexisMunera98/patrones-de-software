@@ -1,35 +1,42 @@
 package co.edu.udem.dp;
 
-import co.edu.udem.dp.interfaces.Cliente;
-import co.edu.udem.dp.interfaces.Reservable;
+import co.edu.udem.dp.clientes.Cliente;
+import co.edu.udem.dp.reservables.Reservable;
 
 import java.util.Date;
+import java.util.List;
 
 public class Reserva {
     public Cliente cliente;
-    public Reservable reservable;
+    public List<Reservable> reservables;
     public Date fechaReserva;
-    public Reservable getReservable() {
-        return reservable;
+
+    public List<Reservable> getReservables() {
+        return reservables;
     }
 
     private boolean active;
 
-    public Reserva(Cliente cliente, Reservable reservable) {
+    public Reserva(Cliente cliente, List<Reservable> reservables) {
         this.cliente = cliente;
-        this.reservable = reservable;
+        this.reservables = reservables;
     }
 
-    public void setReservable(Reservable reservable) {
-        this.reservable = reservable;
+    public void setReservables(List<Reservable> reservables) {
+        this.reservables = reservables;
     }
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
 
-    public void finishReserva() {
+    public void finalizarReserva() {
         this.active = false;
+        for (Reservable reservable :
+                reservables) {
+            reservable.enable();
+        }
+
     }
 
     public void activate() {

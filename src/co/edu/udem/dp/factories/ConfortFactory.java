@@ -1,7 +1,7 @@
 package co.edu.udem.dp.factories;
 
-import co.edu.udem.dp.imp.Televisor;
-import co.edu.udem.dp.interfaces.Confort;
+import co.edu.udem.dp.conforts.Televisor;
+import co.edu.udem.dp.conforts.Confort;
 
 public class ConfortFactory {
     private static ConfortFactory confortFactory;

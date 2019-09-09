@@ -1,7 +1,5 @@
-package co.edu.udem.dp.imp;
+package co.edu.udem.dp.clientes;
 
-
-import co.edu.udem.dp.interfaces.Cliente;
 
 import java.util.Date;
 

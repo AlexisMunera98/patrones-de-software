@@ -1,4 +1,4 @@
-package co.edu.udem.dp.imp;
+package co.edu.udem.dp.clientes;
 
 import java.util.Date;
 

@@ -1,7 +1,6 @@
 package co.edu.udem.dp.visitors;
 
 import co.edu.udem.dp.Cocina;
-import co.edu.udem.dp.interfaces.Visitor;
 import co.edu.udem.dp.Reserva;
 
 import java.time.Instant;

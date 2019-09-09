@@ -7,7 +7,7 @@ import java.time.Instant;
 import java.util.Date;
 import java.util.List;
 
-public class ReservasProximasVisitor implements Visitor {
+public class ReservasProximas implements Visitor {
 
 
     public void run(Cocina cocina) {

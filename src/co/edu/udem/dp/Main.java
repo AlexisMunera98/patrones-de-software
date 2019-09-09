@@ -3,7 +3,7 @@ package co.edu.udem.dp;
 import co.edu.udem.dp.factories.*;
 import co.edu.udem.dp.motivos.Motivo;
 import co.edu.udem.dp.servicios.Servicio;
-import co.edu.udem.dp.visitors.ReservasHechasVisitor;
+import co.edu.udem.dp.visitors.ReservasHechas;
 
 import java.util.Arrays;
 
@@ -27,8 +27,8 @@ public class Main {
         cocina.nuevoClienteVip("Anderson", "3");
 
         cocina.hacerReserva(cocina.reservables, cumpleanos, cocina.clientes.get(0));
-        ReservasHechasVisitor recorrerReservasHechasVisitor = new ReservasHechasVisitor();
-        cocina.accept(recorrerReservasHechasVisitor);
+        ReservasHechas recorrerReservasHechas = new ReservasHechas();
+        cocina.accept(recorrerReservasHechas);
 
         JefeFactory jefeFactory = JefeFactory.getInstance();
     }

@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Mesa extends Reservable {
     public int cantidadComensales;
-
+    public Motivo motivo;
     public boolean isAvailable() {
         return isAvailable;
     }

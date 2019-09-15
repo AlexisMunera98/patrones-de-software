@@ -1,13 +1,13 @@
 package co.edu.udem.dp.cocina.ingredientes;
 
-public class Liquido extends Estado {
+public class Liquido implements Estado {
     @Override
-    double restarCantidad(double cantidad) {
+    public double restarCantidad(double cantidad) {
         return 0;
     }
 
     @Override
-    double sumarCantidad(double cantidad) {
+    public double sumarCantidad(double cantidad) {
         return 0;
     }
 }

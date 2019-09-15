@@ -1,15 +1,15 @@
 package co.edu.udem.dp.cocina.ingredientes;
 
-public class Solido extends Estado {
+public class Solido implements Estado {
     boolean esContable;
 
     @Override
-    double restarCantidad(double cantidad) {
+    public double restarCantidad(double cantidad) {
         return 0;
     }
 
     @Override
-    double sumarCantidad(double cantidad) {
+    public double sumarCantidad(double cantidad) {
         return 0;
     }
 }

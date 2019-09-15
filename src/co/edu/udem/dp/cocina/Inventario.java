@@ -4,11 +4,16 @@ import co.edu.udem.dp.cocina.ingredientes.Ingrediente;
 import co.edu.udem.dp.reservables.Plato;
 import javafx.util.Pair;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class Inventario {
     private static Inventario inventario = null;
     Map<Inventariable, Integer> cantidadPorIngrediente;
+
+    private Inventario() {
+        this.cantidadPorIngrediente = new HashMap<>();
+    }
 
     public static Inventario getInstance() {
         if (inventario == null) {
@@ -18,10 +23,12 @@ public class Inventario {
     }
 
     public void addInventario(Inventariable ingrediente, Integer cantidad) {
-        cantidadPorIngrediente.replace(ingrediente, cantidadPorIngrediente.get(ingrediente) + cantidad);
+        cantidadPorIngrediente.compute(ingrediente, (inventariable, integer) ->
+            integer + cantidad
+        );
     }
 
-    public boolean suficientesIngredientes(Plato plato) {
+    private boolean suficientesIngredientes(Plato plato) {
         for (Pair<Ingrediente, Integer> ingrediente : plato.getReceta().listaIngredientes) {
             if (cantidadPorIngrediente.get(ingrediente.getKey()) < ingrediente.getValue()) {
                 return false;

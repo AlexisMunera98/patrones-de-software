@@ -1,4 +1,6 @@
 package co.edu.udem.dp.cocina;
 
-public abstract class Inventariable {
+import co.edu.udem.dp.cocina.ingredientes.Estado;
+
+public abstract class Inventariable implements Estado {
 }

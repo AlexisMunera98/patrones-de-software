@@ -1,13 +1,10 @@
 package co.edu.udem.dp.cocina;
 
-import javafx.util.Pair;
-
-import java.util.List;
 import java.util.Map;
 
 public class Inventario {
     private static Inventario inventario = null;
-    Map<IngredienteABS, Integer> cantidadPorIngrediente;
+    Map<Inventariable, Integer> cantidadPorIngrediente;
 
     public static Inventario getInstance() {
         if (inventario == null) {
@@ -16,7 +13,7 @@ public class Inventario {
         return inventario;
     }
 
-    public void addInventario(IngredienteABS ingrediente, Integer cantidad) {
+    public void addInventario(Inventariable ingrediente, Integer cantidad) {
         cantidadPorIngrediente.replace(ingrediente, cantidadPorIngrediente.get(ingrediente) + cantidad);
     }
 }

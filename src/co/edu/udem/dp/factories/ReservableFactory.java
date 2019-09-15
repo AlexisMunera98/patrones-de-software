@@ -20,19 +20,19 @@ public class ReservableFactory {
         return reservableFactory;
     }
 
-    public Reservable createMesa(List<Confort> conforts, Motivo motivo, int cantidadComensales) {
+    public Reservable crearMesa(List<Confort> conforts, Motivo motivo, int cantidadComensales) {
         Mesa mesa = new Mesa(null, cantidadComensales);
         mesa.setMotivo(motivo);
         return mesa;
     }
 
-    public Reservable createMesa(Motivo motivo, int cantidadComensales) {
+    public Reservable crearMesa(Motivo motivo, int cantidadComensales) {
         Mesa mesa = new Mesa(null, cantidadComensales);
         mesa.setMotivo(motivo);
         return mesa;
     }
 
-    public Reservable createMesa(int cantidadComensales) {
+    public Reservable crearMesa(int cantidadComensales) {
         return new Mesa(null, cantidadComensales);
     }
 }

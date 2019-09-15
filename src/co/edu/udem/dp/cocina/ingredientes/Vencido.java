@@ -1,6 +1,10 @@
 package co.edu.udem.dp.cocina.ingredientes;
 
-public class Liquido extends Estado {
+import java.util.Date;
+
+public class Vencido extends Estado {
+    Date fechaCaducidad;
+
     @Override
     double restarCantidad(double cantidad) {
         return 0;

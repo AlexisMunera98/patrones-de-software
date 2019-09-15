@@ -1,6 +1,8 @@
-package co.edu.udem.dp;
+package co.edu.udem.dp.cocina;
 
-import co.edu.udem.dp.factories.ClientFactory;
+import co.edu.udem.dp.Jefe;
+import co.edu.udem.dp.Reserva;
+import co.edu.udem.dp.factories.ClienteFactory;
 import co.edu.udem.dp.clientes.Cliente;
 import co.edu.udem.dp.reservables.Reservable;
 import co.edu.udem.dp.visitors.Visitor;
@@ -13,6 +15,9 @@ public class Cocina {
     public List<Reserva> reservas;
     public List<Reservable> reservables;
     public List<Cliente> clientes;
+    public String especialidad;
+    public String direccion;
+    public String telefono;
     public Jefe jefe;
 
     public Cocina(Jefe jefe) {
@@ -22,7 +27,7 @@ public class Cocina {
         this.jefe = jefe;
     }
 
-    public void añadirReservable(Reservable reservable) {
+    public void anadirReservable(Reservable reservable) {
         reservables.add(reservable);
     }
 
@@ -56,10 +61,10 @@ public class Cocina {
     }
 
     public void nuevoClienteNatural(String nombre, String id) {
-        this.clientes.add(ClientFactory.getclientFactory().createClienteNatural(nombre, id));
+        this.clientes.add(ClienteFactory.getclientFactory().crearClienteNatural(nombre, id));
     }
 
     public void nuevoClienteVip(String nombre, String id) {
-        this.clientes.add(ClientFactory.getclientFactory().createClienteVip(nombre, id));
+        this.clientes.add(ClienteFactory.getclientFactory().crearClienteVip(nombre, id));
     }
 }

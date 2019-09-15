@@ -18,7 +18,7 @@ public class ServicioFactory {
         return servicioFactory;
     }
 
-    public Servicio createServicio(String nombre, double precio) {
+    public Servicio crearServicio(String nombre, double precio) {
         if (nombre.equals("Torta")) {
             return new Torta(nombre, precio);
         }
@@ -28,7 +28,7 @@ public class ServicioFactory {
         return null;
     }
 
-    public Servicio createServicio(String nombre, double precio, int horas) {
+    public Servicio crearServicio(String nombre, double precio, int horas) {
         if (nombre.equals("Torta")) {
             return new Torta(nombre, precio, horas);
         }

@@ -7,8 +7,10 @@ import java.util.List;
 
 public abstract class Reservable {
     public List<Confort> confortList;
+    public Motivo motivo;
     public boolean isAvailable;
 
+    public abstract void setMotivo(Motivo motivo);
     public abstract double calcularPrecio();
 
     public void disable() {

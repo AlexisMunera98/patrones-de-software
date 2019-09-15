@@ -1,6 +1,6 @@
 package co.edu.udem.dp.clientes;
 
-import co.edu.udem.dp.Cocina;
+import co.edu.udem.dp.cocina.Cocina;
 import co.edu.udem.dp.Reserva;
 
 import java.util.ArrayList;

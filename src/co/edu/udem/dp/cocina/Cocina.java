@@ -29,6 +29,9 @@ public class Cocina {
         this.jefe = jefe;
         this.inventario = inventario;
         this.recetas = new ArrayList<>();
+        this.especialidad = "Comida";
+        this.direccion = "UdeM";
+        this.telefono = "666";
     }
     public void addReceta(Receta receta){
         recetas.add(receta);

@@ -11,10 +11,12 @@ public class Plato extends Reservable {
     public Plato(boolean esMedio, Receta receta, double precioBase ) {
         this.esMedio = esMedio;
         this.receta = receta;
+        this.isAvailable = true;
     }
 
     @Override
     public void setMotivo(Motivo motivo) {
+        this.motivo = motivo;
 
     }
 

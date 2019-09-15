@@ -8,6 +8,7 @@ public class IngredienteBuilder {
     private String tipo;
     private String parte;
     private boolean esContable;
+    private Estado estado;
 
 
     public IngredienteBuilder() {
@@ -27,6 +28,20 @@ public class IngredienteBuilder {
         this.tipo = CERDO_TYPE;
         return this;
     }
+    public IngredienteBuilder estadoSolido(boolean esContable ,double cantidad){
+        this.estado = new Solido(esContable, 5);
+        return this;
+    }
+
+    public Estado getEstado() {
+        return estado;
+    }
+
+    public IngredienteBuilder estadoLiquido(double cantidad){
+        this.estado = new Liquido( 5);
+        return this;
+    }
+
 
     public IngredienteBuilder res() {
         this.tipo = RES_TYPE;

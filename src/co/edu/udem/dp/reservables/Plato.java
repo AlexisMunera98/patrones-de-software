@@ -8,7 +8,7 @@ public class Plato extends Reservable {
     Receta receta;
     double precioBase;
 
-    public Plato(boolean esMedio, Receta receta) {
+    public Plato(boolean esMedio, Receta receta, double precioBase ) {
         this.esMedio = esMedio;
         this.receta = receta;
     }

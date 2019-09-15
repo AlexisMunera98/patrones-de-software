@@ -6,12 +6,12 @@ public class Vencido extends Estado {
     Date fechaCaducidad;
 
     @Override
-    double restarCantidad(double cantidad) {
-        return 0;
+    void restarCantidad(double cantidad) {
+        System.out.println("El producto esta vencido, se han perdido "+ this.cantidad +" "+this.unidadDeMedicion );
     }
 
     @Override
-    double sumarCantidad(double cantidad) {
-        return 0;
+    void sumarCantidad(double cantidad) {
+        System.out.println("El producto esta vencido, se han perdido "+ this.cantidad +" "+this.unidadDeMedicion );
     }
 }

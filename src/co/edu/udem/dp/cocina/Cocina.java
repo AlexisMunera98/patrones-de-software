@@ -14,6 +14,7 @@ import java.util.List;
 public class Cocina {
     public List<Reserva> reservas;
     public List<Reservable> reservables;
+    public List<Receta> recetas;
     public List<Cliente> clientes;
     public Inventario inventario;
     public String especialidad;
@@ -21,11 +22,18 @@ public class Cocina {
     public String telefono;
     public Jefe jefe;
 
-    public Cocina(Jefe jefe) {
+    public Cocina(Jefe jefe, Inventario inventario) {
         reservables = new ArrayList<Reservable>();
         clientes = new ArrayList<Cliente>();
         reservas = new ArrayList<Reserva>();
         this.jefe = jefe;
+        this.inventario = inventario;
+        this.recetas = new ArrayList<>();
+    }
+    public void addReceta(Receta receta){
+        recetas.add(receta);
+
+
     }
 
     public void anadirReservable(Reservable reservable) {

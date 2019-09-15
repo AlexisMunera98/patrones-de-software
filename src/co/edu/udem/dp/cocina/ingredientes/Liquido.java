@@ -1,13 +1,17 @@
 package co.edu.udem.dp.cocina.ingredientes;
 
-public class Liquido implements Estado {
+public class Liquido extends Estado {
     @Override
-    public double restarCantidad(double cantidad) {
-        return 0;
+    public void restarCantidad(double cantidad) {
+        this.cantidad -= cantidad;
+    }
+
+    public Liquido(double cantidad) {
+        this.cantidad = cantidad;
     }
 
     @Override
-    public double sumarCantidad(double cantidad) {
-        return 0;
+    public void sumarCantidad(double cantidad) {
+        this.cantidad += cantidad;
     }
 }

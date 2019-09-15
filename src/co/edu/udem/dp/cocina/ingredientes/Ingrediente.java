@@ -2,14 +2,28 @@ package co.edu.udem.dp.cocina.ingredientes;
 
 import co.edu.udem.dp.cocina.Inventariable;
 
+
 public class Ingrediente extends Inventariable {
-    @Override
-    public double restarCantidad(double cantidad) {
-        return 0;
+    public String nombre;
+
+    public Ingrediente() {
     }
 
-    @Override
-    public double sumarCantidad(double cantidad) {
-        return 0;
+    public Estado estado;
+
+    public Ingrediente( String nombre , Estado estado ) {
+        this.nombre = nombre;
+        this.estado = estado;
+    }
+
+    public void consumir(double cantidad) {
+        if (estado.estaAgotado()) {
+            System.out.println("Esta agotado");
+        }
+        estado.restarCantidad(cantidad);
+    }
+
+    public void surtir(double cantidad) {
+        estado.sumarCantidad(cantidad);
     }
 }

@@ -5,10 +5,13 @@ public class Carne extends Ingrediente {
     private String parte;
 
     Carne(IngredienteBuilder builder){
+        super();
         if (builder.getParte() == null || builder.getTipo() == null){
             throw new IllegalArgumentException("La carne debe tener tipo y parte");
         }
         this.parte =  builder.getParte();
         this.tipo =  builder.getTipo();
+        this.estado  =builder.getEstado();
     }
+
 }

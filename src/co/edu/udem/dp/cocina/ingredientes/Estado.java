@@ -1,6 +1,16 @@
 package co.edu.udem.dp.cocina.ingredientes;
 
-public interface Estado {
-    abstract double restarCantidad(double cantidad);
-    abstract double sumarCantidad(double cantidad);
+public abstract  class Estado {
+    public double cantidad;
+    public String unidadDeMedicion;
+    abstract void restarCantidad(double cantidad);
+    abstract void sumarCantidad(double cantidad);
+
+    public void setCantidad(double cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public boolean estaAgotado(){
+        return cantidad<=0;
+    }
 }

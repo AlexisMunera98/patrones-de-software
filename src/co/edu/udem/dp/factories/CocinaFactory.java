@@ -16,11 +16,7 @@ public class CocinaFactory {
         return cocinaFactory;
     }
 
-    public Cocina createCocina(Jefe jefe) {
-        return new Cocina(jefe);
-    }
-
     public Cocina createCocina(String nombreJefe, String idJefe) {
-        return new Cocina(JefeFactory.getInstance().createJefe(nombreJefe, idJefe));
+        return new Cocina(JefeFactory.getInstance().createJefe(nombreJefe, idJefe), InventarioFactory.getInventarioFactory().createInventario());
     }
 }

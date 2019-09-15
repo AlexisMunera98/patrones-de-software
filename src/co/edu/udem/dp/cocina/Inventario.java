@@ -4,15 +4,15 @@ import co.edu.udem.dp.cocina.ingredientes.Ingrediente;
 import co.edu.udem.dp.reservables.Plato;
 import javafx.util.Pair;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Inventario {
     private static Inventario inventario = null;
-    Map<Inventariable, Integer> cantidadPorIngrediente;
+    List<Inventariable> inventariable;
 
     private Inventario() {
-        this.cantidadPorIngrediente = new HashMap<>();
+        inventariable = new ArrayList<>();
     }
 
     public static Inventario getInstance() {
@@ -22,15 +22,18 @@ public class Inventario {
         return inventario;
     }
 
-    public void addInventario(Inventariable ingrediente, Integer cantidad) {
-        cantidadPorIngrediente.compute(ingrediente, (inventariable, integer) ->
-            integer + cantidad
-        );
+    public void addInventario(Ingrediente ingrediente) {
+        inventariable.add(ingrediente);
     }
 
     private boolean suficientesIngredientes(Plato plato) {
-        for (Pair<Ingrediente, Integer> ingrediente : plato.getReceta().listaIngredientes) {
-            if (cantidadPorIngrediente.get(ingrediente.getKey()) < ingrediente.getValue()) {
+        for (Ingrediente ingrediente : plato.getReceta().listaIngredientes) {
+            if (!inventariable.contains(ingrediente)) {
+                return false;
+            }
+            int index = inventariable.indexOf(ingrediente);
+            Ingrediente ingredienteEnInventario = (Ingrediente) inventariable.get(index);
+            if (ingrediente.estado.cantidad < ingredienteEnInventario.estado.cantidad) {
                 return false;
             }
         }
@@ -41,9 +44,8 @@ public class Inventario {
         if (!suficientesIngredientes(plato)) {
             return false;
         }
-        for (Pair<Ingrediente, Integer> ingrediente : plato.getReceta().listaIngredientes) {
-            cantidadPorIngrediente.compute(ingrediente.getKey(), (inventariable, integer)
-                    -> integer - ingrediente.getValue());
+        for (Ingrediente ingrediente : plato.getReceta().listaIngredientes) {
+            ingrediente.estado.setCantidad(ingrediente.estado.cantidad - 1);
         }
         return true;
     }

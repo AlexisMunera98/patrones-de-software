@@ -15,6 +15,7 @@ public class Cocina {
     public List<Reserva> reservas;
     public List<Reservable> reservables;
     public List<Cliente> clientes;
+    public Inventario inventario;
     public String especialidad;
     public String direccion;
     public String telefono;

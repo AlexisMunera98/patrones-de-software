@@ -27,19 +27,19 @@ public class RecetaFactory {
     public Receta crearRecetaPizza() {
         List<Ingrediente> ingredientes = new ArrayList<>();
         Estado quesoSolido = new Solido(true, 5);
-        Ingrediente queso = new Ingrediente("queso", quesoSolido ) ;
+        Ingrediente queso = new Ingrediente("queso", quesoSolido);
 
-        Estado masaSolida= new Solido(true, 1);
-        Ingrediente masa = new Ingrediente("masa", masaSolida) ;
+        Estado masaSolida = new Solido(true, 1);
+        Ingrediente masa = new Ingrediente("masa", masaSolida);
         Estado estadoTomate = new Solido(true, 3);
 
-        Ingrediente tomate = new Ingrediente("tomate", estadoTomate) ;
+        Ingrediente tomate = new Ingrediente("tomate", estadoTomate);
 
         ingredientes.add(queso);
         ingredientes.add(masa);
         ingredientes.add(tomate);
 
-        return new Receta("pizza", ingredientes);
+        return new Receta("pizza", ingredientes, 25000);
 
     }
 

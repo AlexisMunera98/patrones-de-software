@@ -25,7 +25,7 @@ public class Main {
         cocina.anadirReservable(ReservableFactory.getInstance().crearMesa(cumpleanos, 4));
         Receta pizza = RecetaFactory.getInstance().crearRecetaPizza();
         cocina.addReceta(pizza);
-        cocina.anadirReservable(PlatoFactory.getInstance().crearPlato(cumpleanos,pizza, false, 10 ));
+        cocina.anadirReservable(PlatoFactory.getInstance().crearPlato(cumpleanos,pizza, false));
 
         cocina.nuevoClienteNatural("Pepito", "1");
         cocina.nuevoClienteNatural("Juanito", "2");

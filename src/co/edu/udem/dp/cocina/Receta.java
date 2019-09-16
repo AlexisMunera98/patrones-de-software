@@ -1,21 +1,21 @@
 package co.edu.udem.dp.cocina;
 
-import co.edu.udem.dp.cocina.ingredientes.Estado;
 import co.edu.udem.dp.cocina.ingredientes.Ingrediente;
-import co.edu.udem.dp.cocina.ingredientes.Solido;
-import co.edu.udem.dp.factories.RecetaFactory;
-import javafx.util.Pair;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Receta {
+    double precioBase;
     String nombre;
     List<Ingrediente> listaIngredientes;
 
-    public Receta(String nombre, List<Ingrediente> listaIngredientes) {
+    public Receta(String nombre, List<Ingrediente> listaIngredientes, double precioBase) {
         this.nombre = nombre;
         this.listaIngredientes = listaIngredientes;
+        this.precioBase = precioBase;
+    }
 
+    public double getPrecioBase() {
+        return precioBase;
     }
 }

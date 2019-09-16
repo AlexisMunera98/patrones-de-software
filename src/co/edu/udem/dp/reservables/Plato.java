@@ -6,9 +6,8 @@ import co.edu.udem.dp.motivos.Motivo;
 public class Plato extends Reservable {
     boolean esMedio;
     Receta receta;
-    double precioBase;
 
-    public Plato(boolean esMedio, Receta receta, double precioBase ) {
+    public Plato(boolean esMedio, Receta receta) {
         this.esMedio = esMedio;
         this.receta = receta;
         this.isAvailable = true;
@@ -22,7 +21,7 @@ public class Plato extends Reservable {
 
     @Override
     public double calcularPrecio() {
-        return esMedio ? precioBase * 0.80 : precioBase;
+        return esMedio ? receta.getPrecioBase() * 0.80 : receta.getPrecioBase();
     }
 
     public Receta getReceta() {

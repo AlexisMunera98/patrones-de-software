@@ -22,8 +22,8 @@ public class PlatoFactory {
         return platoFactory;
     }
 
-    public Reservable crearPlato(Motivo motivo, Receta receta, boolean esMedio, double precioBase) {
-        Plato plato = new Plato(esMedio, receta, precioBase );
+    public Reservable crearPlato(Motivo motivo, Receta receta, boolean esMedio) {
+        Plato plato = new Plato(esMedio, receta);
         plato.setMotivo(motivo);
         return plato;
 

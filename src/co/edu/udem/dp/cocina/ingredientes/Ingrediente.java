@@ -6,14 +6,14 @@ import co.edu.udem.dp.cocina.Inventariable;
 public class Ingrediente extends Inventariable {
     public String nombre;
 
-    public Ingrediente() {
+    private Ingrediente() {
     }
 
     public Estado estado;
 
-    public Ingrediente( String nombre , Estado estado ) {
-        this.nombre = nombre;
-        this.estado = estado;
+    public Ingrediente( IngredienteBuilder builder) {
+        this.estado = builder.getEstado();
+        this.nombre = builder.getNombre();
     }
 
     public void consumir(double cantidad) {

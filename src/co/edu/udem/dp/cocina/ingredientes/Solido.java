@@ -3,9 +3,8 @@ package co.edu.udem.dp.cocina.ingredientes;
 public class Solido extends  Estado {
     boolean esContable;
 
-    public Solido(boolean esContable, double cantidad) {
+    public Solido(boolean esContable) {
         this.esContable = esContable;
-        this.cantidad  = cantidad;
     }
 
     @Override

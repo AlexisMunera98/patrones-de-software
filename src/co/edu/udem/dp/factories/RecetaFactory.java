@@ -3,6 +3,7 @@ package co.edu.udem.dp.factories;
 import co.edu.udem.dp.cocina.Receta;
 import co.edu.udem.dp.cocina.ingredientes.Estado;
 import co.edu.udem.dp.cocina.ingredientes.Ingrediente;
+import co.edu.udem.dp.cocina.ingredientes.IngredienteBuilder;
 import co.edu.udem.dp.cocina.ingredientes.Solido;
 import co.edu.udem.dp.motivos.Motivo;
 import co.edu.udem.dp.reservables.Plato;
@@ -26,14 +27,9 @@ public class RecetaFactory {
 
     public Receta crearRecetaPizza() {
         List<Ingrediente> ingredientes = new ArrayList<>();
-        Estado quesoSolido = new Solido(true, 5);
-        Ingrediente queso = new Ingrediente("queso", quesoSolido);
-
-        Estado masaSolida = new Solido(true, 1);
-        Ingrediente masa = new Ingrediente("masa", masaSolida);
-        Estado estadoTomate = new Solido(true, 3);
-
-        Ingrediente tomate = new Ingrediente("tomate", estadoTomate);
+        Ingrediente queso = new IngredienteBuilder().nombre("Queso").estadoSolidoContable().cantidad(5).buildIngrediente();
+        Ingrediente masa = new IngredienteBuilder().nombre("Masa").estadoSolidoContable().cantidad(3).buildIngrediente();
+        Ingrediente tomate = new IngredienteBuilder().nombre("Tomate").estadoSolidoContable().cantidad(3).buildIngrediente();
 
         ingredientes.add(queso);
         ingredientes.add(masa);

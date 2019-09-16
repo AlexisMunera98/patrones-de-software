@@ -9,9 +9,14 @@ public class IngredienteBuilder {
     private String parte;
     private boolean esContable;
     private Estado estado;
-
+    private String nombre;
 
     public IngredienteBuilder() {
+    }
+
+    public IngredienteBuilder nombre(String nombre) {
+        this.nombre = nombre;
+        return this;
     }
 
     public IngredienteBuilder parte(String parte) {
@@ -28,28 +33,45 @@ public class IngredienteBuilder {
         this.tipo = CERDO_TYPE;
         return this;
     }
-    public IngredienteBuilder estadoSolido(boolean esContable ,double cantidad){
-        this.estado = new Solido(esContable, 5);
+
+    public IngredienteBuilder estadoSolidoContable() {
+        if (this.estado == null) {
+            this.estado = new Solido(true);
+        }
         return this;
     }
 
-    public Estado getEstado() {
-        return estado;
-    }
-
-    public IngredienteBuilder estadoLiquido(double cantidad){
-        this.estado = new Liquido( 5);
+    public IngredienteBuilder estadoSolidoIncontable() {
+        this.estado = new Solido(false);
         return this;
     }
 
+
+    public IngredienteBuilder estadoLiquido() {
+        this.estado = new Liquido();
+        return this;
+    }
+
+    public IngredienteBuilder cantidad(double cantidad) {
+        this.estado.setCantidad(cantidad);
+        return this;
+    }
 
     public IngredienteBuilder res() {
         this.tipo = RES_TYPE;
         return this;
     }
 
-    public Carne build() {
+    public Carne buildCarne() {
         return new Carne(this);
+    }
+
+    public Ingrediente buildIngrediente() {
+        return new Ingrediente(this);
+    }
+
+    public String getNombre() {
+        return nombre;
     }
 
 
@@ -61,7 +83,7 @@ public class IngredienteBuilder {
         return parte;
     }
 
-    public boolean isEsContable() {
-        return esContable;
+    public Estado getEstado() {
+        return estado;
     }
 }

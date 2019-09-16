@@ -6,9 +6,6 @@ public class Liquido extends Estado {
         this.cantidad -= cantidad;
     }
 
-    public Liquido(double cantidad) {
-        this.cantidad = cantidad;
-    }
 
     @Override
     public void sumarCantidad(double cantidad) {

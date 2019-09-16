@@ -3,6 +3,7 @@ package co.edu.udem.dp.factories;
 import co.edu.udem.dp.cocina.Inventario;
 import co.edu.udem.dp.cocina.ingredientes.Estado;
 import co.edu.udem.dp.cocina.ingredientes.Ingrediente;
+import co.edu.udem.dp.cocina.ingredientes.IngredienteBuilder;
 import co.edu.udem.dp.cocina.ingredientes.Solido;
 
 import java.util.ArrayList;
@@ -15,8 +16,8 @@ public class InventarioFactory {
     }
 
     public static InventarioFactory getInventarioFactory() {
-        if (inventarioFactory== null) {
-            inventarioFactory= new InventarioFactory();
+        if (inventarioFactory == null) {
+            inventarioFactory = new InventarioFactory();
         }
         return inventarioFactory;
     }
@@ -24,16 +25,17 @@ public class InventarioFactory {
 
     public Inventario createInventario() {
         Inventario inventario = Inventario.getInstance();
-        Estado quesoSolido = new Solido(true, 5);
-        Ingrediente queso = new Ingrediente("queso", quesoSolido ) ;
-
-        Estado masaSolida= new Solido(true, 1);
-        Ingrediente masa = new Ingrediente("masa", masaSolida) ;
-        Estado estadoTomate = new Solido(true, 3);
-
-        Ingrediente tomate = new Ingrediente("tomate", estadoTomate) ;
-
-
+        IngredienteBuilder ingredienteBuilder = new IngredienteBuilder();
+        ingredienteBuilder.nombre("queso");
+        Ingrediente queso = new IngredienteBuilder()
+                .nombre("queso")
+                .estadoSolidoContable().buildIngrediente();
+        Ingrediente masa = new IngredienteBuilder()
+                .nombre("masa")
+                .estadoSolidoContable().buildIngrediente();
+        Ingrediente tomate = new IngredienteBuilder()
+                .nombre("tomate")
+                .estadoSolidoContable().buildIngrediente();
         inventario.addInventario(queso);
         inventario.addInventario(masa);
         inventario.addInventario(tomate);

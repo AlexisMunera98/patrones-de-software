@@ -3,7 +3,6 @@ package co.edu.udem.dp.factories;
 import co.edu.udem.dp.servicios.Serenata;
 import co.edu.udem.dp.servicios.Servicio;
 import co.edu.udem.dp.servicios.Torta;
-import sun.plugin.dom.core.CoreConstants;
 
 public class ServicioFactory {
     private static ServicioFactory servicioFactory;

@@ -25,17 +25,21 @@ public class InventarioFactory {
 
     public Inventario createInventario() {
         Inventario inventario = Inventario.getInstance();
-        IngredienteBuilder ingredienteBuilder = new IngredienteBuilder();
-        ingredienteBuilder.nombre("queso");
         Ingrediente queso = new IngredienteBuilder()
-                .nombre("queso")
-                .estadoSolidoContable().buildIngrediente();
+                .nombre("Queso")
+                .estadoSolidoContable()
+                .cantidad(20)
+                .buildIngrediente();
         Ingrediente masa = new IngredienteBuilder()
-                .nombre("masa")
-                .estadoSolidoContable().buildIngrediente();
+                .nombre("Masa")
+                .estadoSolidoContable()
+                .cantidad(20)
+                .buildIngrediente();
         Ingrediente tomate = new IngredienteBuilder()
-                .nombre("tomate")
-                .estadoSolidoContable().buildIngrediente();
+                .nombre("Tomate")
+                .estadoSolidoContable()
+                .cantidad(20)
+                .buildIngrediente();
         inventario.addInventario(queso);
         inventario.addInventario(masa);
         inventario.addInventario(tomate);

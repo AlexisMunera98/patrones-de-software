@@ -4,6 +4,7 @@ import co.edu.udem.dp.cocina.Cocina;
 import co.edu.udem.dp.cocina.Receta;
 import co.edu.udem.dp.factories.*;
 import co.edu.udem.dp.motivos.Motivo;
+import co.edu.udem.dp.reservables.Plato;
 import co.edu.udem.dp.servicios.Servicio;
 import co.edu.udem.dp.visitors.ReservasHechas;
 
@@ -14,6 +15,7 @@ public class Main {
     public static void main(String[] args) {
 
         Cocina cocina = CocinaFactory.getCocinaFactory().createCocina("Jefe", "1234");
+        System.out.println(cocina.inventario.toString());
         cocina.nuevoClienteNatural("Cliente1", "1");
         cocina.nuevoClienteNatural("Cliente2", "2");
         cocina.nuevoClienteVip("Cliente3", "3");
@@ -23,9 +25,10 @@ public class Main {
         Motivo cumpleanos = MotivoFactory.getInstance().createMotivo("Cumpleaños", Arrays.asList(torta, serenata));
 
         cocina.anadirReservable(ReservableFactory.getInstance().crearMesa(cumpleanos, 4));
-        Receta pizza = RecetaFactory.getInstance().crearRecetaPizza();
+        Receta pizza = RecetaFactory.getInstance().crearRecetaPizza(cocina.inventario);
         cocina.addReceta(pizza);
-        cocina.anadirReservable(PlatoFactory.getInstance().crearPlato(cumpleanos,pizza, false));
+        Plato platoPizza = (Plato) PlatoFactory.getInstance().crearPlato(cumpleanos,pizza, false);
+        cocina.anadirReservable(platoPizza);
 
         cocina.nuevoClienteNatural("Pepito", "1");
         cocina.nuevoClienteNatural("Juanito", "2");

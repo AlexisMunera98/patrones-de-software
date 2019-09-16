@@ -1,5 +1,6 @@
 package co.edu.udem.dp.factories;
 
+import co.edu.udem.dp.cocina.Inventario;
 import co.edu.udem.dp.cocina.Receta;
 import co.edu.udem.dp.cocina.ingredientes.Estado;
 import co.edu.udem.dp.cocina.ingredientes.Ingrediente;
@@ -25,11 +26,11 @@ public class RecetaFactory {
         return recetaFactory;
     }
 
-    public Receta crearRecetaPizza() {
+    public Receta crearRecetaPizza(Inventario inventario) {
         List<Ingrediente> ingredientes = new ArrayList<>();
-        Ingrediente queso = new IngredienteBuilder().nombre("Queso").estadoSolidoContable().cantidad(5).buildIngrediente();
-        Ingrediente masa = new IngredienteBuilder().nombre("Masa").estadoSolidoContable().cantidad(3).buildIngrediente();
-        Ingrediente tomate = new IngredienteBuilder().nombre("Tomate").estadoSolidoContable().cantidad(3).buildIngrediente();
+        Ingrediente queso = (Ingrediente) inventario.getInventariable("Queso");
+        Ingrediente masa = (Ingrediente) inventario.getInventariable("Masa");
+        Ingrediente tomate = (Ingrediente) inventario.getInventariable("Tomate");
 
         ingredientes.add(queso);
         ingredientes.add(masa);

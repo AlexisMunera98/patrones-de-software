@@ -2,5 +2,5 @@ package co.edu.udem.dp.cocina;
 
 
 public abstract class Inventariable {
-    String nombre;
+    public String nombre;
 }

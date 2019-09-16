@@ -5,6 +5,7 @@ public class Solido extends  Estado {
 
     public Solido(boolean esContable) {
         this.esContable = esContable;
+        this.cantidad = 0;
     }
 
     @Override

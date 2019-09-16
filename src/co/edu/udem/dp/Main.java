@@ -30,11 +30,10 @@ public class Main {
         cocina.nuevoClienteNatural("Pepito", "1");
         cocina.nuevoClienteNatural("Juanito", "2");
         cocina.nuevoClienteVip("Anderson", "3");
-
-        cocina.hacerReserva(cocina.reservables, cumpleanos, cocina.clientes.get(0));
+        if (!cocina.hacerReserva(cocina.reservables, cumpleanos, cocina.clientes.get(0))){
+            System.out.println("No hay ingredientes suficientes para realizar la reserva");
+        }
         ReservasHechas recorrerReservasHechas = new ReservasHechas();
         cocina.accept(recorrerReservasHechas);
-
-        JefeFactory jefeFactory = JefeFactory.getInstance();
     }
 }

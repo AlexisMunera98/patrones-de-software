@@ -4,8 +4,6 @@ import co.edu.udem.dp.cocina.Inventariable;
 
 
 public class Ingrediente extends Inventariable {
-    public String nombre;
-
     private Ingrediente() {
     }
 

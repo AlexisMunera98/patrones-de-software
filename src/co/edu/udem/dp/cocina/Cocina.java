@@ -4,6 +4,7 @@ import co.edu.udem.dp.Jefe;
 import co.edu.udem.dp.Reserva;
 import co.edu.udem.dp.factories.ClienteFactory;
 import co.edu.udem.dp.clientes.Cliente;
+import co.edu.udem.dp.reservables.Plato;
 import co.edu.udem.dp.reservables.Reservable;
 import co.edu.udem.dp.visitors.Visitor;
 import co.edu.udem.dp.motivos.Motivo;
@@ -33,7 +34,8 @@ public class Cocina {
         this.direccion = "UdeM";
         this.telefono = "666";
     }
-    public void addReceta(Receta receta){
+
+    public void addReceta(Receta receta) {
         recetas.add(receta);
 
 
@@ -50,9 +52,15 @@ public class Cocina {
     public boolean hacerReserva(List<Reservable> reservables, Motivo motivo, Cliente cliente) {
         for (Reservable reservable :
                 reservables) {
-            if (!reservable.isAvailable) return false;
-            if (motivo != null) reservable.setMotivo(motivo);
-            reservable.disable();
+            if (reservable instanceof Plato) {
+                if (!Inventario.getInstance().extraerIngredientesPlato((Plato) reservable)){
+                    return false;
+                }
+            } else {
+                if (!reservable.isAvailable) return false;
+                if (motivo != null) reservable.setMotivo(motivo);
+                reservable.disable();
+            }
         }
         Reserva reserva = new Reserva(cliente, reservables);
         reservas.add(reserva);

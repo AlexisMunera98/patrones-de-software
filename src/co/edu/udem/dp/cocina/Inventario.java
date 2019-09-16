@@ -8,10 +8,10 @@ import java.util.List;
 
 public class Inventario {
     private static Inventario inventario = null;
-    List<Inventariable> inventariable;
+    List<Inventariable> inventariables;
 
     private Inventario() {
-        inventariable = new ArrayList<>();
+        inventariables = new ArrayList<>();
     }
 
     public static Inventario getInstance() {
@@ -22,16 +22,16 @@ public class Inventario {
     }
 
     public void addInventario(Ingrediente ingrediente) {
-        inventariable.add(ingrediente);
+        inventariables.add(ingrediente);
     }
 
     private boolean suficientesIngredientes(Plato plato) {
         for (Ingrediente ingrediente : plato.getReceta().listaIngredientes) {
-            if (!inventariable.contains(ingrediente)) {
+            if (!inventariables.contains(ingrediente)) {
                 return false;
             }
-            int index = inventariable.indexOf(ingrediente);
-            Ingrediente ingredienteEnInventario = (Ingrediente) inventariable.get(index);
+            int index = inventariables.indexOf(ingrediente);
+            Ingrediente ingredienteEnInventario = (Ingrediente) inventariables.get(index);
             if (ingrediente.estado.cantidad < ingredienteEnInventario.estado.cantidad) {
                 return false;
             }
@@ -47,5 +47,14 @@ public class Inventario {
             ingrediente.estado.setCantidad(ingrediente.estado.cantidad - 1);
         }
         return true;
+    }
+
+    public Inventariable getInventariable(String nombre){
+        for (Inventariable inventariable: inventariables) {
+            if (inventariable.nombre.equals(nombre)){
+                return inventariable;
+            }
+        }
+        return null;
     }
 }

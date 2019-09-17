@@ -17,7 +17,8 @@ public class ReservasHechas implements Visitor {
             Date fechaIngreso = reserva.fechaReserva;
             Date now = Date.from(Instant.now());
             if (fechaIngreso.before(now)) {
-                System.out.println(reserva.cliente.nombre);
+                System.out.println("Clientes con reservas hechas:");
+                System.out.println(reserva.cliente.id+ " "+ reserva.cliente.nombre +"\n");
             }
         }
     }

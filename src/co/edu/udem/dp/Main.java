@@ -15,10 +15,14 @@ public class Main {
     public static void main(String[] args) {
 
         Cocina cocina = CocinaFactory.getCocinaFactory().createCocina("Jefe", "1234");
+        System.out.println("Inventario Inicial: ");
         System.out.println(cocina.inventario.toString());
-        cocina.nuevoClienteNatural("Cliente1", "1");
-        cocina.nuevoClienteNatural("Cliente2", "2");
-        cocina.nuevoClienteVip("Cliente3", "3");
+        cocina.nuevoClienteNatural("Carlos", "1");
+        cocina.nuevoClienteNatural("Juan", "2");
+        cocina.nuevoClienteVip("Juanito alimaña", "666");
+        cocina.nuevoClienteVip("Anderson", "4");
+        System.out.println("Clientes iniciales:");
+        System.out.println(cocina.clientesToString());
 
         Servicio torta = ServicioFactory.getInstance().crearServicio("Torta", 25000);
         Servicio serenata = ServicioFactory.getInstance().crearServicio("Serenata", 20000, 2);
@@ -30,13 +34,16 @@ public class Main {
         Plato platoPizza = (Plato) PlatoFactory.getInstance().crearPlato(cumpleanos,pizza, false);
         cocina.anadirReservable(platoPizza);
 
-        cocina.nuevoClienteNatural("Pepito", "1");
-        cocina.nuevoClienteNatural("Juanito", "2");
-        cocina.nuevoClienteVip("Anderson", "3");
         if (!cocina.hacerReserva(cocina.reservables, cumpleanos, cocina.clientes.get(0))){
             System.out.println("No hay ingredientes suficientes para realizar la reserva");
         }
+        System.out.println("Reservas hechas;");
+        System.out.println(cocina.reservasToString());
+        System.out.println(" ");
         ReservasHechas recorrerReservasHechas = new ReservasHechas();
         cocina.accept(recorrerReservasHechas);
+
+        System.out.println("Inventario Final: ");
+        System.out.println(cocina.inventario.toString());
     }
 }

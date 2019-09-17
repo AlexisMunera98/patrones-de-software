@@ -10,6 +10,16 @@ public class Inventario {
     private static Inventario inventario = null;
     List<Inventariable> inventariables;
 
+    public String toString(){
+        StringBuilder string = new StringBuilder();
+        for (Inventariable inventariable :
+                inventariables) {
+                Ingrediente ingrediente = (Ingrediente) inventariable;
+                string.append(ingrediente.nombre).append(" ").append(ingrediente.estado.cantidad).append("\n");
+        }
+
+        return string.toString();
+    }
     private Inventario() {
         inventariables = new ArrayList<>();
     }

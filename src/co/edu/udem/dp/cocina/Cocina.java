@@ -22,6 +22,16 @@ public class Cocina {
     public String direccion;
     public String telefono;
     public Jefe jefe;
+    public String clientesToString(){
+
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Cliente cliente :
+                clientes) {
+            stringBuilder.append(cliente.id).append(" ").append(cliente.nombre).append("\n");
+
+        }
+        return stringBuilder.toString();
+    }
 
     public Cocina(Jefe jefe, Inventario inventario) {
         reservables = new ArrayList<Reservable>();
@@ -86,5 +96,15 @@ public class Cocina {
 
     public void nuevoClienteVip(String nombre, String id) {
         this.clientes.add(ClienteFactory.getclientFactory().crearClienteVip(nombre, id));
+    }
+
+    public String reservasToString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Reserva reserva:
+                reservas) {
+            stringBuilder.append(reserva.cliente.nombre).append( " ").append(reserva.fechaReserva );
+
+        }
+        return stringBuilder.toString();
     }
 }
